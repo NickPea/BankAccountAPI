@@ -11,7 +11,7 @@ namespace BankApi.Models
         public ulong AccountId { get; set; }
         public AccountType Type { get; set; }
         public decimal Balance { get; set; }
-        public long PersonId { get; set; } //FK
+        public Guid PersonId { get; set; } //FK
 
         //navigation properties
         public Person Person { get; set; }
