@@ -23,7 +23,7 @@ namespace BankApi.Data
             {
                 new Person{FirstName="Carson",LastName="Alexander", Address="over the rainbow", PhoneNumber="12345",
                     Accounts= new List<Account> {
-                        new Account {Type=AccountType.Savings, Balance=500,
+                        new Account {AccountId=99999999999999999, Type=AccountType.Savings, Balance=500,
                             Transactions= new List<Transaction> {
                                 new Transaction {Type=TransactionType.Deposit, Amount=500, Description="new account creation"}
                             }
