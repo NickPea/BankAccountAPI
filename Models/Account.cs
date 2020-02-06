@@ -17,5 +17,8 @@ namespace BankApi.Models
         public Person Person { get; set; }
         public List<Transaction> Transactions { get; set; }
 
+        //concurrency
+        public byte[] LastUpdate { get; set; }
+
     }
 }

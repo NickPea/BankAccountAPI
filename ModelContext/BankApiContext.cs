@@ -60,6 +60,9 @@ namespace BankApi.ModelContext
                     .Property(t => t.Amount)
                     .HasColumnType("money");
 
+            ////////////////CONCURRENCY///////////////////////
+
+
 
 
         }//end onmodelcreating method

@@ -17,6 +17,9 @@ namespace BankApi.Models
         //navigation properties
         public Account Account { get; set; }
 
+        //concurrency
+        public byte[] LastUpdate { get; set; }
+
 
     }
 
