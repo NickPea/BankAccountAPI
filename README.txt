@@ -59,7 +59,7 @@ _____Setup_____
     - dotnet ef migration add initialcreate
     - dotnet ef database update
     - create CRUD operation controllers (dotnet aspnet-codegenerator controller....)
-    - create USECASES operation controller
+    - create extra USECASE operations controller
     - test and document endpoints
     - recheck microsoft asp/ef/sqlServer/C# documentation before finalizing
     - dockerize finished product

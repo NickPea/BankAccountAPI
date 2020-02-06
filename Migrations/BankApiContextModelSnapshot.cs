@@ -30,6 +30,9 @@ namespace BankApi.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("money");
 
+                    b.Property<byte[]>("LastUpdate")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<Guid>("PersonId")
                         .HasColumnType("uniqueidentifier");
 
@@ -58,6 +61,9 @@ namespace BankApi.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("LastUpdate")
+                        .HasColumnType("varbinary(max)");
+
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -71,7 +77,7 @@ namespace BankApi.Migrations
                     b.Property<DateTime>("DateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 2, 6, 10, 41, 34, 695, DateTimeKind.Utc).AddTicks(8853));
+                        .HasDefaultValue(new DateTime(2020, 2, 6, 14, 41, 14, 170, DateTimeKind.Utc).AddTicks(7551));
 
                     b.Property<decimal>("AccountId")
                         .HasColumnType("decimal(20,0)");
@@ -81,6 +87,9 @@ namespace BankApi.Migrations
 
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("LastUpdate")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");

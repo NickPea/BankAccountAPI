@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankApi.Migrations
 {
-    public partial class setupdatabasemodel : Migration
+    public partial class createdatabase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -23,7 +23,8 @@ namespace BankApi.Migrations
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
-                    PhoneNumber = table.Column<string>(nullable: true)
+                    PhoneNumber = table.Column<string>(nullable: true),
+                    LastUpdate = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -37,7 +38,8 @@ namespace BankApi.Migrations
                     AccountId = table.Column<decimal>(nullable: false, defaultValueSql: "NEXT VALUE FOR shared.AccountNumbers"),
                     Type = table.Column<int>(nullable: false),
                     Balance = table.Column<decimal>(type: "money", nullable: false),
-                    PersonId = table.Column<Guid>(nullable: false)
+                    PersonId = table.Column<Guid>(nullable: false),
+                    LastUpdate = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
@@ -54,11 +56,12 @@ namespace BankApi.Migrations
                 name: "Transactions",
                 columns: table => new
                 {
-                    DateTime = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 2, 6, 10, 41, 34, 695, DateTimeKind.Utc).AddTicks(8853)),
+                    DateTime = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 2, 6, 14, 41, 14, 170, DateTimeKind.Utc).AddTicks(7551)),
                     AccountId = table.Column<decimal>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     Amount = table.Column<decimal>(type: "money", nullable: false),
-                    Description = table.Column<string>(nullable: true)
+                    Description = table.Column<string>(nullable: true),
+                    LastUpdate = table.Column<byte[]>(nullable: true)
                 },
                 constraints: table =>
                 {
