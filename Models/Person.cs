@@ -16,7 +16,7 @@ namespace BankApi.Models
         public List<Account> Accounts { get; set; } = new List<Account>();
 
         //concurrency
-        public byte[] LastUpdate { get; set; }
+        public byte[] ConcurrencyToken { get; set; }
 
     }
 }

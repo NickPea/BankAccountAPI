@@ -9,16 +9,16 @@ namespace BankApi.Models
     {
 
         public DateTime DateTime { get; set; } //PK
+        public decimal AccountId { get; set; } //PK-FK
         public TransactionType Type { get; set; }
         public decimal Amount { get; set; }
         public string Description { get; set; }
-        public ulong AccountId { get; set; } //PK-FK
 
         //navigation properties
         public Account Account { get; set; }
 
         //concurrency
-        public byte[] LastUpdate { get; set; }
+        public byte[] ConcurrencyToken { get; set; }
 
 
     }

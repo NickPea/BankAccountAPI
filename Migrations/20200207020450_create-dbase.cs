@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankApi.Migrations
 {
-    public partial class createdatabase : Migration
+    public partial class createdbase : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,7 +24,7 @@ namespace BankApi.Migrations
                     LastName = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
-                    LastUpdate = table.Column<byte[]>(nullable: true)
+                    LastUpdate = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -35,11 +35,11 @@ namespace BankApi.Migrations
                 name: "Accounts",
                 columns: table => new
                 {
-                    AccountId = table.Column<decimal>(nullable: false, defaultValueSql: "NEXT VALUE FOR shared.AccountNumbers"),
+                    AccountId = table.Column<decimal>(type: "decimal(20,0)", nullable: false, defaultValueSql: "NEXT VALUE FOR shared.AccountNumbers"),
                     Type = table.Column<int>(nullable: false),
                     Balance = table.Column<decimal>(type: "money", nullable: false),
                     PersonId = table.Column<Guid>(nullable: false),
-                    LastUpdate = table.Column<byte[]>(nullable: true)
+                    LastUpdate = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -56,12 +56,12 @@ namespace BankApi.Migrations
                 name: "Transactions",
                 columns: table => new
                 {
-                    DateTime = table.Column<DateTime>(nullable: false, defaultValue: new DateTime(2020, 2, 6, 14, 41, 14, 170, DateTimeKind.Utc).AddTicks(7551)),
+                    DateTime = table.Column<DateTime>(nullable: false, defaultValueSql: "GETUTCDATE()"),
                     AccountId = table.Column<decimal>(nullable: false),
                     Type = table.Column<int>(nullable: false),
                     Amount = table.Column<decimal>(type: "money", nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    LastUpdate = table.Column<byte[]>(nullable: true)
+                    LastUpdate = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {

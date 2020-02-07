@@ -23,9 +23,18 @@ namespace BankApi.Data
             {
                 new Person{FirstName="Carson",LastName="Alexander", Address="over the rainbow", PhoneNumber="12345",
                     Accounts= new List<Account> {
-                        new Account {AccountId=99999999999999999, Type=AccountType.Savings, Balance=500,
+                        new Account {Type=AccountType.Savings, Balance=500,
                             Transactions= new List<Transaction> {
                                 new Transaction {Type=TransactionType.Deposit, Amount=500, Description="new account creation"}
+                            }
+                        }
+                    }
+                },
+                new Person{FirstName="Dunkin",LastName="Dolittle", Address="under the bridge", PhoneNumber="49034",
+                    Accounts= new List<Account> {
+                        new Account {Type=AccountType.EveryDay, Balance=100,
+                            Transactions= new List<Transaction> {
+                                new Transaction {Type=TransactionType.Withdrawl, Amount=5, Description="7/11 Moorooka"}
                             }
                         }
                     }

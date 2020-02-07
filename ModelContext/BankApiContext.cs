@@ -39,7 +39,7 @@ namespace BankApi.ModelContext
             //////////////////////DEFAULTS///////////////////////
             modelBuilder.Entity<Transaction>()
                 .Property(t => t.DateTime)
-                .HasDefaultValue(DateTime.UtcNow);
+                .HasDefaultValueSql("GETUTCDATE()");
             //Also used to date account creation if on
             //creation of an account a deposit must be made.
 
@@ -60,8 +60,23 @@ namespace BankApi.ModelContext
                     .Property(t => t.Amount)
                     .HasColumnType("money");
 
+            modelBuilder.Entity<Account>()
+                    .Property(a => a.AccountId)
+                    .HasColumnType("decimal(20,0)");
+
             ////////////////CONCURRENCY///////////////////////
 
+            modelBuilder.Entity<Person>()
+                    .Property(p => p.ConcurrencyToken)
+                    .IsRowVersion();
+
+            modelBuilder.Entity<Account>()
+                    .Property(a => a.ConcurrencyToken)
+                    .IsRowVersion();
+
+            modelBuilder.Entity<Transaction>()
+                    .Property(t => t.ConcurrencyToken)
+                    .IsRowVersion();
 
 
 

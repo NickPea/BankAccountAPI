@@ -8,7 +8,7 @@ namespace BankApi.Models
     public class Account
     {
 
-        public ulong AccountId { get; set; }
+        public decimal AccountId { get; set; }
         public AccountType Type { get; set; }
         public decimal Balance { get; set; }
         public Guid PersonId { get; set; } //FK
@@ -18,7 +18,7 @@ namespace BankApi.Models
         public List<Transaction> Transactions { get; set; }
 
         //concurrency
-        public byte[] LastUpdate { get; set; }
+        public byte[] ConcurrencyToken { get; set; }
 
     }
 }

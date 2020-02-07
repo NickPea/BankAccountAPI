@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BankApi.Migrations
 {
     [DbContext(typeof(BankApiContext))]
-    [Migration("20200206144114_create-database")]
-    partial class createdatabase
+    [Migration("20200207022207_change-lastupdate-properties")]
+    partial class changelastupdateproperties
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,8 +32,10 @@ namespace BankApi.Migrations
                     b.Property<decimal>("Balance")
                         .HasColumnType("money");
 
-                    b.Property<byte[]>("LastUpdate")
-                        .HasColumnType("varbinary(max)");
+                    b.Property<byte[]>("ConcurrencyToken")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
 
                     b.Property<Guid>("PersonId")
                         .HasColumnType("uniqueidentifier");
@@ -57,14 +59,16 @@ namespace BankApi.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<byte[]>("ConcurrencyToken")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("LastUpdate")
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -79,7 +83,7 @@ namespace BankApi.Migrations
                     b.Property<DateTime>("DateTime")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime2")
-                        .HasDefaultValue(new DateTime(2020, 2, 6, 14, 41, 14, 170, DateTimeKind.Utc).AddTicks(7551));
+                        .HasDefaultValueSql("GETUTCDATE()");
 
                     b.Property<decimal>("AccountId")
                         .HasColumnType("decimal(20,0)");
@@ -87,11 +91,13 @@ namespace BankApi.Migrations
                     b.Property<decimal>("Amount")
                         .HasColumnType("money");
 
+                    b.Property<byte[]>("ConcurrencyToken")
+                        .IsConcurrencyToken()
+                        .ValueGeneratedOnAddOrUpdate()
+                        .HasColumnType("rowversion");
+
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<byte[]>("LastUpdate")
-                        .HasColumnType("varbinary(max)");
 
                     b.Property<int>("Type")
                         .HasColumnType("int");
