@@ -97,9 +97,6 @@ namespace BankApi.Migrations
                     b.Property<string>("Description")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Type")
-                        .HasColumnType("int");
-
                     b.HasKey("DateTime", "AccountId");
 
                     b.HasIndex("AccountId");

@@ -25,7 +25,7 @@ namespace BankApi.Data
                     Accounts= new List<Account> {
                         new Account {Type=AccountType.Savings, Balance=500,
                             Transactions= new List<Transaction> {
-                                new Transaction {Type=TransactionType.Deposit, Amount=500, Description="new account creation"}
+                                new Transaction {Amount=500, Description="new account creation"}
                             }
                         }
                     }
@@ -34,7 +34,7 @@ namespace BankApi.Data
                     Accounts= new List<Account> {
                         new Account {Type=AccountType.EveryDay, Balance=100,
                             Transactions= new List<Transaction> {
-                                new Transaction {Type=TransactionType.Withdrawl, Amount=5, Description="7/11 Moorooka"}
+                                new Transaction {Amount=5, Description="7/11 Moorooka"}
                             }
                         }
                     }

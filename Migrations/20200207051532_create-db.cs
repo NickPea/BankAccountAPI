@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace BankApi.Migrations
 {
-    public partial class createdbase : Migration
+    public partial class createdb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -24,7 +24,7 @@ namespace BankApi.Migrations
                     LastName = table.Column<string>(nullable: true),
                     Address = table.Column<string>(nullable: true),
                     PhoneNumber = table.Column<string>(nullable: true),
-                    LastUpdate = table.Column<byte[]>(rowVersion: true, nullable: true)
+                    ConcurrencyToken = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -39,7 +39,7 @@ namespace BankApi.Migrations
                     Type = table.Column<int>(nullable: false),
                     Balance = table.Column<decimal>(type: "money", nullable: false),
                     PersonId = table.Column<Guid>(nullable: false),
-                    LastUpdate = table.Column<byte[]>(rowVersion: true, nullable: true)
+                    ConcurrencyToken = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
@@ -58,10 +58,9 @@ namespace BankApi.Migrations
                 {
                     DateTime = table.Column<DateTime>(nullable: false, defaultValueSql: "GETUTCDATE()"),
                     AccountId = table.Column<decimal>(nullable: false),
-                    Type = table.Column<int>(nullable: false),
                     Amount = table.Column<decimal>(type: "money", nullable: false),
                     Description = table.Column<string>(nullable: true),
-                    LastUpdate = table.Column<byte[]>(rowVersion: true, nullable: true)
+                    ConcurrencyToken = table.Column<byte[]>(rowVersion: true, nullable: true)
                 },
                 constraints: table =>
                 {
